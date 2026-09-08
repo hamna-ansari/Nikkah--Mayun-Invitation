@@ -1,0 +1,34 @@
+/* Nikkah-branded left/right envelope opening */
+.nikkah-envelope{position:relative;width:min(100vw,480px);height:100svh;overflow:hidden;background:#fffaf0;perspective:1200px;isolation:isolate}
+.envelope-card-preview{position:absolute;z-index:1;inset:0;background:#fffaf0;overflow:hidden}
+.envelope-card-preview img{display:block;width:100%;height:auto}
+.nikkah-flap{position:absolute;z-index:3;top:0;bottom:0;width:50.25%;background-image:linear-gradient(#fffaf0d8,#f5e4d5dc),url('nikkah-card-finished.png');background-size:200% 100%;box-shadow:0 0 24px #72574348;backface-visibility:hidden;transition:transform 1.25s cubic-bezier(.68,0,.18,1),opacity .7s .65s}
+.nikkah-flap:after{content:'';position:absolute;inset:14px 8px;border:1px solid #c7a56688;box-shadow:inset 0 0 22px #b9955f22}
+.nikkah-flap.left{left:0;background-position:left center;transform-origin:left center;border-right:1px solid #b9965f}.nikkah-flap.right{right:0;background-position:right center;transform-origin:right center;border-left:1px solid #b9965f}
+.nikkah-envelope.opening .nikkah-flap.left{transform:rotateY(-112deg);opacity:0}.nikkah-envelope.opening .nikkah-flap.right{transform:rotateY(112deg);opacity:0}
+.nikkah-seal{position:absolute;z-index:6;left:50%;top:53%;width:96px;height:96px;transform:translate(-50%,-50%);border:1px solid #b18442;border-radius:50%;background:radial-gradient(circle at 35% 28%,#fff8df,#d6ad63 68%,#9a6d2c);color:#654823;box-shadow:0 10px 28px #60452963,inset 0 0 0 6px #f5e1ad,inset 0 0 0 8px #b48137;cursor:pointer;animation:sealGlow 1.9s ease-in-out infinite;transition:opacity .45s,transform .6s}
+.nikkah-seal span{display:block;font-size:1.35rem;letter-spacing:.08em}.nikkah-seal i{font-size:.88rem;color:#956c32}.nikkah-seal small{position:absolute;top:114%;left:50%;width:130px;transform:translateX(-50%);color:#745839;font:700 .67rem Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;text-shadow:0 1px #fff}
+@keyframes sealGlow{50%{transform:translate(-50%,-50%) scale(1.045);box-shadow:0 12px 34px #9d733878,0 0 28px #f0cf7c88,inset 0 0 0 6px #f5e1ad,inset 0 0 0 8px #b48137}}
+.nikkah-envelope.opening .nikkah-seal{opacity:0;transform:translate(-50%,-50%) scale(.35) rotate(25deg);pointer-events:none;animation:none}
+
+/* Let the card define its own height: no blank bands and no distortion */
+.nikkah{display:block!important;min-height:0!important;height:auto!important;padding:0!important;line-height:0;background:#fffaf0!important}
+.nikkah-card-full{display:block!important;width:100%!important;height:auto!important;max-height:none!important;min-height:0!important;object-fit:contain!important}
+
+/* Keep the first timing envelope fully opaque; animate movement only */
+.envelope-timeline img{opacity:1!important}
+.envelope-timeline img:nth-child(1){filter:drop-shadow(0 11px 13px #71563e2e) saturate(1.05) contrast(1.03)!important}
+.timeline.in-view .envelope-timeline img:nth-child(1){animation:envelopeFloat 4.2s .2s ease-in-out infinite}
+.timeline.in-view .envelope-timeline img:nth-child(2){animation:envelopeFloat 4.2s .55s ease-in-out infinite}
+.timeline.in-view .envelope-timeline img:nth-child(3){animation:envelopeFloat 4.2s .9s ease-in-out infinite}
+@keyframes envelopeFloat{0%,100%{translate:0 0}50%{translate:0 -7px}}
+
+@media(max-width:380px){
+  .nikkah-seal{width:88px;height:88px}
+  .nikkah-flap:after{inset:11px 6px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .nikkah-flap,.nikkah-seal{transition-duration:.01ms!important;animation:none!important}
+  .timeline.in-view .envelope-timeline img{animation:none!important}
+}

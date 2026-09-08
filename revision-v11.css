@@ -1,0 +1,34 @@
+/* Mobile-first refinements: natural card crop and fully opaque timing artwork. */
+.nikkah {
+  width: 100%;
+  height: 100svh !important;
+  min-height: 100svh !important;
+  overflow: hidden;
+  background: #fffaf0 !important;
+}
+
+.nikkah-card-full {
+  width: 100% !important;
+  height: 100svh !important;
+  min-height: 100svh !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+.envelope-timeline img:first-child {
+  opacity: 1 !important;
+  filter: drop-shadow(0 11px 13px rgb(113 86 62 / 20%)) saturate(1.08) contrast(1.04) !important;
+}
+
+@media (min-width: 700px) {
+  .nikkah {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .nikkah-card-full {
+    height: auto !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+  }
+}

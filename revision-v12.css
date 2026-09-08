@@ -1,0 +1,9 @@
+/* The full-screen card is the only invitation card revealed after opening. */
+.envelope-card-preview {
+  display: none !important;
+}
+
+.envelope-timeline img:first-child {
+  opacity: 1 !important;
+  background: transparent !important;
+}

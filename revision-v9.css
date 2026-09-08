@@ -1,0 +1,58 @@
+/* Automatic scroll opening — mobile first */
+.scroll-stage{overflow:hidden!important;background:radial-gradient(circle at 50% 45%,#fffaf2,#eee0cb)!important}
+.scroll-invite{z-index:8;top:3.2%!important;padding:8px 18px;border:1px solid #d3b47b80;border-radius:999px;background:#fffaf0a8;backdrop-filter:blur(8px)}
+.auto-scroll{position:absolute;z-index:3;left:50%;top:51%;width:min(96vw,470px);height:92svh;transform:translate(-50%,-50%);clip-path:inset(47% 0 47% 0);filter:drop-shadow(0 20px 25px #5b402f35);transition:clip-path 2.35s cubic-bezier(.22,.75,.16,1),filter 1s}
+.auto-scroll-frame{position:absolute;z-index:3;inset:0;width:100%;height:100%;object-fit:fill;opacity:1;transition:opacity 1.15s ease,transform 1.15s ease}
+.auto-scroll-card{position:absolute;z-index:2;inset:8.5% 14.5%;overflow:hidden;background:#fffaf0;opacity:0;transform:scale(.94);transition:opacity 1s .75s,transform 1.4s .65s,inset 1.15s ease}
+.auto-scroll-card img{display:block;width:100%;height:100%;object-fit:contain}
+.scroll-stage.auto-opening .auto-scroll{clip-path:inset(0)}
+.scroll-stage.auto-opening .auto-scroll-card{opacity:1;transform:none}
+.scroll-stage.scroll-fading .auto-scroll{filter:none}
+.scroll-stage.scroll-fading .auto-scroll-frame{opacity:0;transform:scale(1.04)}
+.scroll-stage.scroll-fading .auto-scroll-card{inset:0;transition-delay:0s}
+.scroll-stage.scroll-fading .scroll-invite{opacity:0;transition:opacity .55s}
+.new-scroll,.enter-invitation{display:none!important}
+
+/* Preserve the invitation card's real aspect ratio */
+.nikkah{min-height:100svh!important;height:auto!important;display:flex!important;align-items:center!important;padding:0!important;background:#fffaf0!important}
+.nikkah-card-full{display:block!important;width:100%!important;height:auto!important;min-height:0!important;max-height:100svh!important;object-fit:contain!important;filter:drop-shadow(0 14px 24px #72533824)!important}
+
+/* Compact heading overlay on the complete floral calendar */
+.calendar-section{position:relative!important;background:#f7eddf!important}
+.date-glass{position:absolute;z-index:3;top:2.4%;left:50%;width:78%;padding:12px 15px!important;transform:translateX(-50%);border:1px solid #fff9edcc;border-radius:18px;background:linear-gradient(135deg,#fffaf0a8,#f8eee28a);box-shadow:0 10px 28px #63503a24,inset 0 0 0 1px #cda86242;backdrop-filter:blur(9px)}
+.date-glass span{font-size:.61rem}.date-glass h2{font-size:1.35rem;margin-top:.18rem!important;text-shadow:0 1px #fff}
+
+/* Strong Mayun affordance and supplied card */
+.surprise{min-height:100svh!important;overflow:hidden!important;background:radial-gradient(circle,#fffdf8,#f4ead9)!important}
+.mayun-trigger{animation:mayunBeat 1.65s ease-in-out infinite}
+.mayun-trigger .mayun-main{width:min(74%,300px)!important}
+.mayun-trigger>span{padding:10px 20px!important;border:1px solid #b68d50!important;border-radius:999px!important;background:linear-gradient(135deg,#fffdf7,#eee1cd)!important;color:#69533b!important;font-size:.74rem!important;box-shadow:0 9px 20px #7a5c342a!important}
+@keyframes mayunBeat{0%,100%{transform:scale(1)}12%{transform:scale(1.035)}24%{transform:scale(1)}36%{transform:scale(1.025)}50%{transform:scale(1)}}
+.surprise>.mayun-card{display:grid!important;place-items:center!important;inset:0!important;border:0!important;border-radius:0!important;background:#fffaf0!important;box-shadow:none!important}
+.surprise>.mayun-card>img{position:static!important;display:block!important;width:100%!important;height:100%!important;object-fit:contain!important}
+
+/* Smaller staggered timing envelopes */
+.timeline{padding-bottom:24px!important}
+.envelope-timeline{gap:8px!important}
+.envelope-timeline img{width:min(76%,330px)!important;filter:drop-shadow(0 11px 13px #71563e25)!important}
+.envelope-timeline img:nth-child(odd){transform:translateX(-26px) translateY(18px) scale(.94)!important}
+.envelope-timeline img:nth-child(even){transform:translateX(26px) translateY(18px) scale(.94)!important}
+.timeline.in-view .envelope-timeline img{transform:none!important}
+
+/* Premium floral glass contact panel */
+.contact{padding:46px 20px!important}
+.contact:before{background:#fffaf035!important;backdrop-filter:blur(2px)!important}
+.contact-panel{padding:31px 20px 26px!important;border:1px solid #d1ae6f!important;border-radius:36px!important;background:linear-gradient(145deg,#fffdf5c9,#f5e9d9ad)!important;box-shadow:0 20px 48px #59432f34,inset 0 0 0 1px #fff!important;backdrop-filter:blur(12px) saturate(1.12)!important}
+.contact-panel .map{border:1px solid #b58a46!important;border-radius:999px!important;background:linear-gradient(135deg,#fffdf8,#ead9bf)!important;color:#715536!important;box-shadow:0 9px 20px #71542d2b,inset 0 1px #fff!important}
+.contact-panel .contacts a{border:1px solid #c9a66e!important;border-radius:16px!important;background:linear-gradient(135deg,#fffdf2d9,#efe0c9c4)!important}
+
+@media(max-width:380px){
+  .auto-scroll{width:98vw;height:90svh}.auto-scroll-card{inset:9% 14.5%}
+  .date-glass{width:82%;padding:10px 12px!important}.date-glass h2{font-size:1.2rem}
+  .envelope-timeline img{width:min(72%,300px)!important}
+  .contact{padding-inline:15px!important}.contact-panel{padding-inline:15px!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .auto-scroll{transition-duration:.01ms!important}.auto-scroll-frame,.auto-scroll-card{transition-duration:.01ms!important}.mayun-trigger{animation:none!important}
+}
